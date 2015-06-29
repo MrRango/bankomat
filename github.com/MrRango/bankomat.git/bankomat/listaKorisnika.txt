@@ -1,0 +1,2 @@
+GoranArsenic 1111 true 0.0
+NikolaNikolic 2222 false 3750.0
