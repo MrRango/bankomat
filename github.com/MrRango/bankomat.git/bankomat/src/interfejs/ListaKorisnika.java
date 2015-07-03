@@ -1,3 +1,8 @@
+/*
+ * Interfejs ListaKorisnika, implementiran u klasi InOutListaKorisnika
+ * Sadrzi metode za ucitavanje i upisivanje korisnika u fajl
+ */
+
 package interfejs;
 
 import java.io.FileNotFoundException;

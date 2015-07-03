@@ -1,3 +1,8 @@
+/*
+ * Implementira interfejs ListaKorisnika
+ * Klasa za rad sa fajlom listaKorisnika.txt
+ */
+
 package ulaz_izlaz;
 
 import interfejs.ListaKorisnika;
@@ -16,7 +21,12 @@ public class InOutListaKorisnika implements ListaKorisnika{
 	ArrayList <User> listaKorisnika = new ArrayList<>();
 	int i = 0;
 	
-	// ucitavanje liste korisnika iz fajla "listaKorisnika.txt"
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.ListaKorisnika#ucitajListuKorisnika()
+	 * 
+	 *  Ucitavanje liste korisnika iz fajla "listaKorisnika.txt"
+	 */
 	@Override
 	public void ucitajListuKorisnika() throws Exception{
 		File file = new File("listaKorisnika.txt");
@@ -33,14 +43,19 @@ public class InOutListaKorisnika implements ListaKorisnika{
 		
 	}
 	
-	// upisivanje liste korisnika u fajl "listaKorisnika.txt"
+	/*
+	 * Upisivanje liste korisnika u fajl "listaKorisnika.txt"
+	 */
 	private void sacuvajListuKorisnika() throws FileNotFoundException{
+		// Brisanje sadrzaja fajla prije novog upisa
 		PrintWriter writer = new PrintWriter("listaKorisnika.txt");
 		writer.print("");
 		writer.close();
+		
 		String username, password;
 		boolean isAdmin;
 		double amount;
+		// Vadjenje podataka iz liste korisnika i upisivanje u fajl
 		for (int i = 0; i < listaKorisnika.size(); i++){
 			username = listaKorisnika.get(i).getUsername();
 			password = listaKorisnika.get(i).getPassword();
@@ -60,13 +75,24 @@ public class InOutListaKorisnika implements ListaKorisnika{
 		}
 	}
 	
-	// preuzimanje liste korisnika
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.ListaKorisnika#getListuKorisnika()
+	 * 
+	 * Metoda za preuzimanje trenutne liste korisnika
+	 */
 	@Override
 	public ArrayList<User> getListuKorisnika(){
 		return listaKorisnika;
 	}
 	
-	// postavljanje nove liste korisnika
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.ListaKorisnika#setListuKorisnika(java.util.ArrayList)
+	 * 
+	 * Metoda za postavljanje nove liste korisnika i upisivanje liste korisnika
+	 * u fajl pozivanjem metode sacuvajListuKorisnika()
+	 */
 	@Override
 	public void setListuKorisnika(ArrayList<User>newListaKorisnika) throws FileNotFoundException{
 		listaKorisnika = newListaKorisnika;

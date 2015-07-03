@@ -1,3 +1,8 @@
+/*
+ * Implementira interfejs StanjeBankomata
+ * Klasa za rad sa fajlom stanjeBankomata.txt
+ */
+
 package ulaz_izlaz;
 
 import interfejs.StanjeBankomata;
@@ -11,7 +16,12 @@ public class InOutStanjeBankomata implements StanjeBankomata {
 
 	private static int deset, dvadeset, pedeset, sto;
 
-	// ucitavanje stanja bankomata iz fajla "stanjeBankomata.txt"
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.StanjeBankomata#ucitajStanjeBankomata()
+	 * 
+	 * Ucitavanje stanja bankomata iz fajla "stanjeBankomata.txt"
+	 */
 	@Override
 	public void ucitajStanjeBankomata() throws Exception {
 		File file = new File("stanjeBankomata.txt");
@@ -27,7 +37,9 @@ public class InOutStanjeBankomata implements StanjeBankomata {
 		in.close();
 	}
 
-	// upisivanje novog stanja bankomata u fajl "stanjeBankomata.txt"
+	/*
+	 * Upisivanje novog stanja bankomata u fajl "stanjeBankomata.txt"
+	 */
 	private void sacuvajStanjeBankomata() {
 		PrintWriter pw = null;
 		try {
@@ -41,7 +53,13 @@ public class InOutStanjeBankomata implements StanjeBankomata {
 		}
 	}
 
-	// izvjestaj o stanju bankomata
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.StanjeBankomata#izvijestiOStanjuBankomata()
+	 * 
+	 * Metoda za ispis trenutnog o stanja bankomata
+	 * Ispisuje koliko ima novcanica i kolika je vrijednost svih novcanica zajedno
+	 */
 	@Override
 	public String izvijestiOStanjuBankomata() {
 		return "U bankomatu trenutno ima:\n" + deset + " novcanica od 10KM\n"
@@ -51,14 +69,24 @@ public class InOutStanjeBankomata implements StanjeBankomata {
 				+ vratiUkupno() + "KM\n";
 	}
 
-	// preuzimanje stanja bankomata
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.StanjeBankomata#getStanjeBankomata()
+	 * 
+	 * Metoda za preuzimanje trenutnog stanja bankomata
+	 */
 	@Override
 	public int[] getStanjeBankomata() {
 		int[] stanje = { deset, dvadeset, pedeset, sto, vratiUkupno()};
 		return stanje;
 	}
 	
-	// postavnjanje novog stanja bankomata
+	/*
+	 * (non-Javadoc)
+	 * @see interfejs.StanjeBankomata#setStanjeBankomata(int[])
+	 * 
+	 * Metoda za postavnjanje novog stanja bankomata
+	 */
 	@Override
 	public void setStanjeBankomata(int[]stanje){
 		deset = stanje[0];
@@ -68,7 +96,9 @@ public class InOutStanjeBankomata implements StanjeBankomata {
 		sacuvajStanjeBankomata();
 	}
 
-	// metoda koja racuna koliko ukupno ima novca u bankomatu
+	/*
+	 * Metoda koja racuna koliko ukupno ima novca u bankomatu
+	 */
 	private int vratiUkupno() {
 		return (deset * 10) + (dvadeset * 20) + (pedeset * 50) + (sto * 100);
 	}

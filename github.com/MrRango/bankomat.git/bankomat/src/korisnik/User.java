@@ -1,3 +1,7 @@
+/*
+ * Klasa User sa konstruktorima
+ */
+
 package korisnik;
 
 public class User {

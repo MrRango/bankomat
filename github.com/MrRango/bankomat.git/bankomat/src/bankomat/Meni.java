@@ -1,3 +1,8 @@
+/*
+ * Klasa Meni koja sadrzi menije za admine i obicne korisnike
+ * U zavisnosti od toga ko je ulogovan, meni nudi razlicite opcije
+ */
+
 package bankomat;
 
 import java.util.Scanner;
@@ -10,11 +15,12 @@ public class Meni {
 	BankomatContext bankCon = new BankomatContext();
 	StanjeBankomata stanje = new InOutStanjeBankomata();
 	private boolean isOn = true;
-
-	Meni() {
-
-	}
-
+	
+	/*
+	 * Meni za administratore
+	 * Sadrzi sve opcije koje admin moze da izabera
+	 * U slucaju da se u bankomatu nalazi mali broj nekih od novcanica ispisuje upozorenje 
+	 */
 	public void ispisiAdminMeni() throws Exception {
 		while (isOn) {
 			System.out.println("*****ADMIN MENI*****\n"
@@ -29,6 +35,7 @@ public class Meni {
 			if(stanjeBankomata[0] < 15 || stanjeBankomata[1] < 15 || stanjeBankomata[2] < 15 || stanjeBankomata[3] < 15){
 				System.out.println("**************UPOZORENJE*************\nProvjerite broj novcanica u bankomatu\n*************************************\n");
 			}
+			
 			System.out.println("Izaberite zeljenu opciju");
 
 			Scanner in = new Scanner(System.in);
@@ -62,7 +69,10 @@ public class Meni {
 			}
 		}
 	}
-
+	
+	/*
+	 * Meni za obicne korisnike sa opcijama koje mogu da izaberu
+	 */
 	public void ispisiKorisnickiMeni() throws Exception {
 		while(isOn){
 			System.out.println("***KORISNICKI MENI***\n"
@@ -70,6 +80,7 @@ public class Meni {
 					+ "[2] Podignite novac\n"
 					+ "[3] Izlogujte se\n" + "*********************");
 			System.out.println("Izaberite zeljenu opciju");
+			
 			Scanner in = new Scanner(System.in);
 			int izbor = in.nextInt();
 

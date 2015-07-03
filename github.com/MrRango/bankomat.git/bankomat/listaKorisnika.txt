@@ -1,2 +1,6 @@
 GoranArsenic 1111 true 0.0
-NikolaNikolic 2222 false 3750.0
+admin 1111 true 0.0
+NikolaNikolic 2222 false 150.0
+MicoMicic 3333 false 3230.0
+PeroPeric 4444 false 4000.0
+SimoSimic 5555 false 4500.0
